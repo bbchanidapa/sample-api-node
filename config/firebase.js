@@ -1,3 +1,5 @@
+const firebase = require('firebase')
+
 const firebaseConfig = {
     apiKey: "AIzaSyBgN2geTOsvIbx59TCYGSJgVPjG8R6taSs",
     authDomain: "lern-base.firebaseapp.com",
@@ -6,6 +8,11 @@ const firebaseConfig = {
     storageBucket: "lern-base.appspot.com",
     messagingSenderId: "627628489369",
     appId: "1:627628489369:web:0f1e23f18d615919"
+}
+firebase.initializeApp(firebaseConfig)
+
+const db = () => {
+    return firebase.database()
 }
 
 const connectedFirebase = () => {
@@ -18,4 +25,5 @@ const connectedFirebase = () => {
     //     }
     // })
 }
-module.exports = firebaseConfig
+
+module.exports = { db, firebaseConfig }
